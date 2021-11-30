@@ -21,7 +21,7 @@ public class SpawnerControl : NetworkSingleton<SpawnerControl>
         Vector3 origin = bulletOrigin.transform.position;
         GameObject go = NetworkObjectPool.Instance.GetNetworkObject(bulletPrefab).gameObject;
         go.transform.position = origin;
-        go.GetComponent<Rigidbody>().AddForce(bulletOrigin.transform.forward * bulletSpeed);
+        go.GetComponent<Rigidbody>().AddForce(bulletOrigin.transform.forward * bulletSpeed, ForceMode.VelocityChange);
         go.GetComponent<NetworkObject>().Spawn();
     }
 }

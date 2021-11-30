@@ -7,13 +7,21 @@ public class BulletControl : MonoBehaviour
     [SerializeField]
     private float bulletLifeTime = 1.5f;
 
-    void Start()
-    {
-        Invoke("DestroyItself", bulletLifeTime);
-    }
+    //void Start()
+    //{
+    //    Invoke("DestroyItself", bulletLifeTime);
+    //}
 
-    void DestroyItself()
+    //void DestroyItself()
+    //{
+    //    gameObject.SetActive(false);
+    //}
+
+    private void OnCollisionEnter(Collision collision)
     {
-        gameObject.SetActive(false);
+        if (collision.gameObject)
+        {
+            Debug.Log("GOLPE " + collision.gameObject.name);
+        }
     }
 }
