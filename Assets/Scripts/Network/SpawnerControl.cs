@@ -14,13 +14,14 @@ public class SpawnerControl : NetworkSingleton<SpawnerControl>
         };
     }
 
-    public void SpawnBullet()
+    public void SpawnBullet(Transform bulletOrigin, float bulletSpeed)
     {
         if (!IsServer) return;
 
+        Vector3 origin = bulletOrigin.transform.position;
         GameObject go = NetworkObjectPool.Instance.GetNetworkObject(bulletPrefab).gameObject;
-        go.transform.position = new Vector3(Random.Range(-4, 4), 1.0f, Random.Range(-4, 4));
-        
+        go.transform.position = origin;
+        go.GetComponent<Rigidbody>().AddForce(bulletOrigin.transform.forward * bulletSpeed);
         go.GetComponent<NetworkObject>().Spawn();
     }
 }
