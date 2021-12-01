@@ -43,7 +43,9 @@ GameObject:
   - component: {fileID: 1142434974361939185}
   - component: {fileID: 1896325819964617020}
   - component: {fileID: 3952006945421119208}
+  - component: {fileID: 6302350086777331603}
   - component: {fileID: 5853862070172141280}
+  - component: {fileID: -248642007909673897}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -146,6 +148,24 @@ MonoBehaviour:
   AlwaysReplicateAsRoot: 0
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!143 &6302350086777331603
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3159525149020608151}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5853862070172141280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,6 +180,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletOrigin: {fileID: 6901417051154646451}
   bulletSpeed: 150
+--- !u!114 &-248642007909673897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3159525149020608151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efa4fcdd8f63744dba7fa20023ecc548, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 3.5
+  runSpeedOffset: 2
+  rotationSpeed: 3.5
+  defaultInitialPositionOnPlane: {x: -4, y: 4}
+  networkPositionDirection:
+    m_InternalValue: {x: 0, y: 0, z: 0}
+  networkRotationDirection:
+    m_InternalValue: {x: 0, y: 0, z: 0}
 --- !u!1 &8000516494169505589
 GameObject:
   m_ObjectHideFlags: 0

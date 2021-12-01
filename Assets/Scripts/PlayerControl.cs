@@ -1,49 +1,91 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
+[RequireComponent(typeof(NetworkObject))]
 public class PlayerControl : NetworkBehaviour
 {
     [SerializeField]
-    private Transform bulletOrigin;
+    private float walkSpeed = 3.5f;
 
     [SerializeField]
-    private float bulletSpeed = 750f;
+    private float runSpeedOffset = 2.0f;
 
-    private NetworkVariable<Vector3> networkPlayerPosition = new NetworkVariable<Vector3>();
+    [SerializeField]
+    private float rotationSpeed = 3.5f;
 
-    private void Start()
+    [SerializeField]
+    private Vector2 defaultInitialPositionOnPlane = new Vector2(-4, 4);
+
+    [SerializeField]
+    private NetworkVariable<Vector3> networkPositionDirection = new NetworkVariable<Vector3>();
+
+    [SerializeField]
+    private NetworkVariable<Vector3> networkRotationDirection = new NetworkVariable<Vector3>();
+
+    private CharacterController characterController;
+
+    // client caches positions
+    private Vector3 oldInputPosition = Vector3.zero;
+    private Vector3 oldInputRotation = Vector3.zero;
+
+    private Animator animator;
+
+    private void Awake()
     {
-        if (IsClient && IsOwner)
-        {
-            Vector3 initialPosition = new Vector3(Random.Range(-4, 4), 0f, Random.Range(-4, 4));
-            RandomizePlayerStartPositionServerRpc(initialPosition);
-        }
+        characterController = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-        if (IsClient && IsOwner && Input.GetKeyDown(KeyCode.Space))
+        if (IsClient && IsOwner)
         {
-            shootServerRpc();
+            ClientInput();
         }
 
-        if(transform.position != networkPlayerPosition.Value)
+        ClientMoveAndRotate();
+    }
+
+    private void ClientMoveAndRotate()
+    {
+        if (networkPositionDirection.Value != Vector3.zero)
         {
-            transform.position = networkPlayerPosition.Value;
+            characterController.SimpleMove(networkPositionDirection.Value);
+        }
+        if (networkRotationDirection.Value != Vector3.zero)
+        {
+            transform.Rotate(networkRotationDirection.Value, Space.World);
         }
     }
 
-    [ServerRpc]
-    public void RandomizePlayerStartPositionServerRpc(Vector3 initialPosition)
+    private void ClientInput()
     {
-        networkPlayerPosition.Value = initialPosition;
+        // left & right rotation
+        Vector3 inputRotation = new Vector3(0, Input.GetAxis("Horizontal"), 0);
+
+        // forward & backward direction
+        Vector3 direction = transform.TransformDirection(Vector3.forward);
+        float forwardInput = Input.GetAxis("Vertical");
+        Vector3 inputPosition = direction * forwardInput;
+
+        // let server know about position and rotation client changes
+        if (oldInputPosition != inputPosition ||
+            oldInputRotation != inputRotation)
+        {
+            oldInputPosition = inputPosition;
+            UpdateClientPositionAndRotationServerRpc(inputPosition * walkSpeed, inputRotation * rotationSpeed);
+        }
+    }
+
+    private static bool ActiveRunningActionKey()
+    {
+        return Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
     }
 
     [ServerRpc]
-    public void shootServerRpc()
+    public void UpdateClientPositionAndRotationServerRpc(Vector3 newPosition, Vector3 newRotation)
     {
-        SpawnerControl.Instance.SpawnBullet(bulletOrigin, bulletSpeed);
+        networkPositionDirection.Value = newPosition;
+        networkRotationDirection.Value = newRotation;
     }
 }
