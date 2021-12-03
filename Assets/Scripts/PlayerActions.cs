@@ -17,6 +17,11 @@ public class PlayerActions : NetworkBehaviour
         {
             shootServerRpc();
         }
+
+        if (IsClient && IsOwner && Input.GetKeyDown(KeyCode.P))
+        {
+            SpawnPetServerRpc(NetworkManager.LocalClientId);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -29,5 +34,11 @@ public class PlayerActions : NetworkBehaviour
     public void shootServerRpc()
     {
         SpawnerControl.Instance.SpawnBullet(bulletOrigin, bulletSpeed, NetworkManager.LocalClientId);
+    }
+
+    [ServerRpc]
+    public void SpawnPetServerRpc(ulong id)
+    {
+        SpawnerControl.Instance.SpawnPlayerPet(id);
     }
 }

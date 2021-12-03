@@ -42,10 +42,11 @@ GameObject:
   - component: {fileID: 6423622393729925845}
   - component: {fileID: 1142434974361939185}
   - component: {fileID: 1896325819964617020}
-  - component: {fileID: 3952006945421119208}
   - component: {fileID: 6302350086777331603}
   - component: {fileID: 5853862070172141280}
-  - component: {fileID: -248642007909673897}
+  - component: {fileID: 4911936752727381862}
+  - component: {fileID: -661742111028858423}
+  - component: {fileID: -3747342663702804136}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -132,22 +133,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3952006945421119208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3159525149020608151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 951099334
-  AlwaysReplicateAsRoot: 0
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
 --- !u!143 &6302350086777331603
 CharacterController:
   m_ObjectHideFlags: 0
@@ -180,7 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletOrigin: {fileID: 6901417051154646451}
   bulletSpeed: 150
---- !u!114 &-248642007909673897
+--- !u!114 &4911936752727381862
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -194,6 +179,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 3.5
   rotationSpeed: 3.5
+--- !u!114 &-661742111028858423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3159525149020608151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &-3747342663702804136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3159525149020608151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54c9647dc784a46bca664910f182491e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 1
+  SyncScaleY: 1
+  SyncScaleZ: 1
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  InLocalSpace: 0
+  Interpolate: 1
+  CanCommitToTransform: 0
 --- !u!1 &8000516494169505589
 GameObject:
   m_ObjectHideFlags: 0
