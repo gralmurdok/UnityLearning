@@ -134,11 +134,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1003350190325956858}
-  - component: {fileID: 6560813895165860480}
-  - component: {fileID: 479436556407626314}
-  - component: {fileID: -72071439690630152}
-  - component: {fileID: -5493174839339914885}
-  - component: {fileID: 1470537399754486343}
+  - component: {fileID: 3333412071500693195}
+  - component: {fileID: 3399353686761973602}
+  - component: {fileID: 7755103216837173870}
   m_Layer: 8
   m_Name: PlayerArmature
   m_TagString: Player
@@ -163,7 +161,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &6560813895165860480
+--- !u!95 &3333412071500693195
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -172,9 +170,9 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 479436556407626304}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 36078ab0369161e49a29d349ae3e0739, type: 3}
-  m_Controller: {fileID: 9100000, guid: edb4a7eb3526c4d50957bc4ddd210279, type: 2}
-  m_CullingMode: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -182,25 +180,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!143 &479436556407626314
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 479436556407626304}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 1.8
-  m_Radius: 0.28
-  m_SlopeLimit: 45
-  m_StepOffset: 0.25
-  m_SkinWidth: 0.02
-  m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 0.93, z: 0}
---- !u!114 &-72071439690630152
+--- !u!114 &3399353686761973602
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -209,13 +189,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 479436556407626304}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8d0727d5ae3244e3b569694d3912374, type: 3}
+  m_Script: {fileID: 11500000, guid: fff0960ef4ea6e04eac66b4a7fd2189d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Animator: {fileID: 6560813895165860480}
-  m_ParameterSendBits: 0
-  m_SendRate: 0.1
---- !u!114 &-5493174839339914885
+  m_RigLayers:
+  - m_Rig: {fileID: 0}
+    m_Active: 1
+  m_Effectors: []
+--- !u!114 &7755103216837173870
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -224,40 +205,84 @@ MonoBehaviour:
   m_GameObject: {fileID: 479436556407626304}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
+  m_Script: {fileID: 11500000, guid: b2d8418b0b9634b1892b0268dd9c2743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SyncPositionX: 1
-  SyncPositionY: 1
-  SyncPositionZ: 1
-  SyncRotAngleX: 1
-  SyncRotAngleY: 1
-  SyncRotAngleZ: 1
-  SyncScaleX: 1
-  SyncScaleY: 1
-  SyncScaleZ: 1
-  PositionThreshold: 0.001
-  RotAngleThreshold: 0.01
-  ScaleThreshold: 0.01
-  InLocalSpace: 0
-  Interpolate: 1
-  CanCommitToTransform: 0
---- !u!114 &1470537399754486343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 479436556407626304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 951099334
-  AlwaysReplicateAsRoot: 0
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
+  boneShape: 1
+  drawBones: 1
+  drawTripods: 0
+  boneSize: 1
+  tripodSize: 1
+  boneColor: {r: 0, g: 0, b: 1, a: 0.5}
+  m_Transforms:
+  - {fileID: 6230654029295438411}
+  - {fileID: 6558044952631042649}
+  - {fileID: 2797461962402079894}
+  - {fileID: 6454598585342788061}
+  - {fileID: 2186081991928836249}
+  - {fileID: 7983850501458942357}
+  - {fileID: 3039411028133435297}
+  - {fileID: 7496933639448903268}
+  - {fileID: 3840319666687838102}
+  - {fileID: 8759013766139529098}
+  - {fileID: 1294360193747061105}
+  - {fileID: 3042048241459413686}
+  - {fileID: 5961675429590193405}
+  - {fileID: 5607128682211797783}
+  - {fileID: 2039059863691274036}
+  - {fileID: 4942241389940753906}
+  - {fileID: 8781237104757301086}
+  - {fileID: 1898610463281465391}
+  - {fileID: 8293605324606897445}
+  - {fileID: 3399945562897597510}
+  - {fileID: 7285101775720783275}
+  - {fileID: 6003299886797733086}
+  - {fileID: 3505238752438874960}
+  - {fileID: 6000147731845949928}
+  - {fileID: 644733747594065751}
+  - {fileID: 1717799188504150657}
+  - {fileID: 640621266200808397}
+  - {fileID: 5740420894614190685}
+  - {fileID: 23329437805925562}
+  - {fileID: 2357860575994863434}
+  - {fileID: 5853194014895329005}
+  - {fileID: 2858369952722676929}
+  - {fileID: 6358333254976879099}
+  - {fileID: 6067458198415970274}
+  - {fileID: 3263626582608592138}
+  - {fileID: 8100799556971911208}
+  - {fileID: 5083707208300797785}
+  - {fileID: 3648960202855595206}
+  - {fileID: 5230307104831579666}
+  - {fileID: 5502511351630558242}
+  - {fileID: 930013901223865600}
+  - {fileID: 4841987175734142495}
+  - {fileID: 655450598104339031}
+  - {fileID: 8940979101281548259}
+  - {fileID: 524036583189033157}
+  - {fileID: 7096759011645779984}
+  - {fileID: 7872107266254092543}
+  - {fileID: 9126586749624990585}
+  - {fileID: 7596410686546148098}
+  - {fileID: 1783716360263693978}
+  - {fileID: 6640552095842096}
+  - {fileID: 2650481752926523540}
+  - {fileID: 7380110100302921048}
+  - {fileID: 2798848998226714090}
+  - {fileID: 7449110173794079477}
+  - {fileID: 378142954968410056}
+  - {fileID: 4200050293966227967}
+  - {fileID: 77537810293617269}
+  - {fileID: 3007893449135595247}
+  - {fileID: 5154555831674303974}
+  - {fileID: 575680011709882545}
+  - {fileID: 1613599299707048584}
+  - {fileID: 4723109620057516996}
+  - {fileID: 6655868637171740030}
+  - {fileID: 4347834186630517940}
+  - {fileID: 602573327964265897}
+  - {fileID: 2012255670560695772}
+  - {fileID: 2348492651713994637}
 --- !u!1 &552673362291081363
 GameObject:
   m_ObjectHideFlags: 0
