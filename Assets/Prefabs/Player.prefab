@@ -193,13 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 3.5
-  runSpeedOffset: 2
   rotationSpeed: 3.5
-  defaultInitialPositionOnPlane: {x: -4, y: 4}
-  networkPositionDirection:
-    m_InternalValue: {x: 0, y: 0, z: 0}
-  networkRotationDirection:
-    m_InternalValue: {x: 0, y: 0, z: 0}
 --- !u!1 &8000516494169505589
 GameObject:
   m_ObjectHideFlags: 0

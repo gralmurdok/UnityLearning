@@ -28,6 +28,6 @@ public class PlayerActions : NetworkBehaviour
     [ServerRpc]
     public void shootServerRpc()
     {
-        SpawnerControl.Instance.SpawnBullet(bulletOrigin, bulletSpeed);
+        SpawnerControl.Instance.SpawnBullet(bulletOrigin, bulletSpeed, NetworkManager.LocalClientId);
     }
 }

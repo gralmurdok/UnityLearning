@@ -8,13 +8,10 @@ public class SpawnerControl : NetworkSingleton<SpawnerControl>
 
     public void Start()
     {
-        NetworkManager.Singleton.OnServerStarted += () =>
-        {
-            NetworkObjectPool.Instance.InitializePool();
-        };
+        NetworkObjectPool.Instance.InitializePool();
     }
 
-    public void SpawnBullet(Transform bulletOrigin, float bulletSpeed)
+    public void SpawnBullet(Transform bulletOrigin, float bulletSpeed, ulong id)
     {
         if (!IsServer) return;
 
@@ -22,6 +19,6 @@ public class SpawnerControl : NetworkSingleton<SpawnerControl>
         GameObject go = NetworkObjectPool.Instance.GetNetworkObject(bulletPrefab).gameObject;
         go.transform.position = origin;
         go.GetComponent<Rigidbody>().AddForce(bulletOrigin.transform.forward * bulletSpeed, ForceMode.VelocityChange);
-        go.GetComponent<NetworkObject>().Spawn();
+        go.GetComponent<NetworkObject>().SpawnWithOwnership(id);
     }
 }
