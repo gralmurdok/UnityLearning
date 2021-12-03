@@ -19,6 +19,9 @@ public class VRMap
 
 public class VRRig : MonoBehaviour
 {
+    [SerializeField]
+    float turnSmoothness;
+
     public VRMap head;
     public VRMap leftHand;
     public VRMap rightHand;
@@ -36,10 +39,11 @@ public class VRRig : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void FixedUpdate()
     {
         transform.position = headConstraint.position + headBodyOffset;
-        transform.forward = Vector3.ProjectOnPlane(headConstraint.up, Vector3.up).normalized;
+        transform.forward = Vector3.Lerp(transform.forward,
+            Vector3.ProjectOnPlane(headConstraint.up, Vector3.up).normalized, Time.deltaTime * turnSmoothness);
 
         head.Map();
         leftHand.Map();
