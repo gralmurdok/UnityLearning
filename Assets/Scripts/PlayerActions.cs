@@ -22,6 +22,11 @@ public class PlayerActions : NetworkBehaviour
         {
             SpawnPetServerRpc(NetworkManager.LocalClientId);
         }
+
+        if (IsClient && IsOwner && Input.GetKeyDown(KeyCode.H))
+        {
+            Debug.Log(GameObject.Find("Ground").gameObject.name);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

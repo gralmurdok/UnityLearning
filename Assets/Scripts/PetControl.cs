@@ -33,19 +33,19 @@ public class PetControl : NetworkBehaviour
 
     private void ClientInput()
     {
-        // left & right rotation
-        Vector3 inputRotation = new Vector3(0, Input.GetAxis("Horizontal"), 0);
+        //// left & right rotation
+        //Vector3 inputRotation = new Vector3(0, Input.GetAxis("Horizontal"), 0);
 
-        // forward & backward direction
-        Vector3 direction = transform.TransformDirection(Vector3.forward);
-        float forwardInput = Input.GetAxis("Vertical");
-        Vector3 inputPosition = direction * forwardInput;
+        //// forward & backward direction
+        //Vector3 direction = transform.TransformDirection(Vector3.forward);
+        //float forwardInput = Input.GetAxis("Vertical");
+        //Vector3 inputPosition = direction * forwardInput;
 
-        if (oldInputPosition != inputPosition ||
-            oldInputRotation != inputRotation)
-        {
-            characterController.SimpleMove(inputPosition * (walkSpeed / 2));
-            transform.Rotate(inputRotation * rotationSpeed);
-        }
+        //if (oldInputPosition != inputPosition ||
+        //    oldInputRotation != inputRotation)
+        //{
+        //    characterController.SimpleMove(inputPosition * (walkSpeed / 2));
+        //    transform.Rotate(inputRotation * rotationSpeed);
+        //}
     }
 }

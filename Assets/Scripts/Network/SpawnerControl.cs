@@ -31,5 +31,6 @@ public class SpawnerControl : NetworkSingleton<SpawnerControl>
 
         GameObject go = NetworkObjectPool.Instance.GetNetworkObject(playerPetPrefab).gameObject;
         go.GetComponent<NetworkObject>().SpawnWithOwnership(id);
+        go.transform.parent = GameObject.Find("PullPoint").transform;
     }
 }
