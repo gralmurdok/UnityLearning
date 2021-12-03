@@ -5,15 +5,14 @@ using UnityEngine;
 [System.Serializable]
 public class VRMap
 {
-    public Transform vrTarget;
     public Transform rigTarget;
     public Vector3 trackingPositionOffset;
     public Vector3 trackingRotationOffset;
 
     public void Map()
     {
-        rigTarget.position = vrTarget.TransformPoint(trackingPositionOffset);
-        rigTarget.rotation = vrTarget.rotation * Quaternion.Euler(trackingRotationOffset);
+        rigTarget.position = HeadControl.Instance.GameObjectTransform.TransformPoint(trackingPositionOffset);
+        rigTarget.rotation = HeadControl.Instance.GameObjectTransform.rotation * Quaternion.Euler(trackingRotationOffset);
     }
 }
 

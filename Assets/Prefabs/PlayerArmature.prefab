@@ -510,6 +510,8 @@ GameObject:
   - component: {fileID: 1112206804}
   - component: {fileID: 1112206805}
   - component: {fileID: 2487575520770560169}
+  - component: {fileID: 355763610978531974}
+  - component: {fileID: -7288171370188679981}
   m_Layer: 8
   m_Name: PlayerArmature
   m_TagString: Player
@@ -671,17 +673,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnSmoothness: 1
   head:
-    vrTarget: {fileID: 0}
+    vrTarget: {fileID: 4253994990542656208, guid: 518c84558df2d4cd5a40e8ae7da77545, type: 3}
     rigTarget: {fileID: 1647527615}
     trackingPositionOffset: {x: 0, y: 0, z: 0}
     trackingRotationOffset: {x: 0, y: 0, z: 0}
   leftHand:
-    vrTarget: {fileID: 0}
+    vrTarget: {fileID: 7562884361459163806, guid: 88486a6450f1243aeb32201c6178717b, type: 3}
     rigTarget: {fileID: 802881038}
     trackingPositionOffset: {x: 0, y: 0, z: 0}
     trackingRotationOffset: {x: -90, y: 180, z: 0}
   rightHand:
-    vrTarget: {fileID: 0}
+    vrTarget: {fileID: 6117602504290024, guid: 60638dfc9163640d58572140a3738efe, type: 3}
     rigTarget: {fileID: 565607996}
     trackingPositionOffset: {x: 0, y: 0, z: 0}
     trackingRotationOffset: {x: 90, y: 180, z: 0}
@@ -718,6 +720,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedThreshold: 0.1
   smoothing: 0.3
+--- !u!114 &355763610978531974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479436556407626304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &-7288171370188679981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479436556407626304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54c9647dc784a46bca664910f182491e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 0
+  SyncScaleY: 0
+  SyncScaleZ: 0
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  InLocalSpace: 0
+  Interpolate: 1
+  CanCommitToTransform: 0
 --- !u!1 &552673362291081363
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,18 +16,18 @@ public class VRAnimatorController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         vrRig = GetComponent<VRRig>();
-        previousPos = vrRig.head.vrTarget.position;
+        previousPos = HeadControl.Instance.GameObjectTransform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
         // compute the speed
-        Vector3 headsetSpeed = (vrRig.head.vrTarget.position - previousPos) / Time.deltaTime;
+        Vector3 headsetSpeed = (HeadControl.Instance.GameObjectTransform.position - previousPos) / Time.deltaTime;
         headsetSpeed.y = 0;
         // local speed
         Vector3 headsetLocalSpeed = transform.InverseTransformDirection(headsetSpeed);
-        previousPos = vrRig.head.vrTarget.position;
+        previousPos = HeadControl.Instance.GameObjectTransform.position;
 
         // set animator values
         float previousDirectionX = animator.GetFloat("DirectionX");
