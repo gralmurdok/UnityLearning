@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 1346854680466278502}
   - component: {fileID: 1346854680466278503}
   - component: {fileID: 1346854680466278496}
+  - component: {fileID: 394517004}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -138,7 +139,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.01
+  near clip plane: 0.015
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -184,6 +185,18 @@ MonoBehaviour:
   m_TrackingType: 0
   m_UpdateType: 0
   m_UseRelativeTransform: 0
+--- !u!114 &394517004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346854680466278500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d4782e865f494428966794ebe4b0575, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1346854681084717166
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,6 +207,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1346854681084717161}
   - component: {fileID: 1346854681084717160}
+  - component: {fileID: 1363411934}
   m_Layer: 0
   m_Name: LeftHandController
   m_TagString: Untagged
@@ -246,6 +260,18 @@ MonoBehaviour:
   m_MoveObjectIn: 14
   m_MoveObjectOut: 15
   m_PoseProvider: {fileID: 0}
+--- !u!114 &1363411934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346854681084717166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50d35057bb411432289007b0516b2b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1346854681154685969
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,6 +282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1346854681154685968}
   - component: {fileID: 1346854681154685971}
+  - component: {fileID: 407284001}
   m_Layer: 0
   m_Name: RightHandController
   m_TagString: Untagged
@@ -308,3 +335,15 @@ MonoBehaviour:
   m_MoveObjectIn: 14
   m_MoveObjectOut: 15
   m_PoseProvider: {fileID: 0}
+--- !u!114 &407284001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346854681154685969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 122974e3b48b248a38973d81a8b49fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
