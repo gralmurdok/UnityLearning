@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
 [System.Serializable]
 public class VRMap
@@ -16,7 +17,7 @@ public class VRMap
     }
 }
 
-public class VRRig : MonoBehaviour
+public class VRRig : NetworkBehaviour
 {
     [SerializeField]
     float turnSmoothness;
@@ -34,18 +35,28 @@ public class VRRig : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        headBodyOffset = transform.position - headConstraint.position;
+        if (IsClient && IsOwner)
+        {
+            headBodyOffset = transform.position - headConstraint.position;
+        }
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        transform.position = headConstraint.position + headBodyOffset;
-        transform.forward = Vector3.Lerp(transform.forward,
-            Vector3.ProjectOnPlane(headConstraint.up, Vector3.up).normalized, Time.deltaTime * turnSmoothness);
+        if (IsClient && IsOwner)
+        {
+            transform.position = headConstraint.position + headBodyOffset;
+            head.Map(HeadInput.Instance.localTransform);
+            leftHand.Map(LeftHandInput.Instance.localTransform);
+            rightHand.Map(RightHandInput.Instance.localTransform);
 
-        head.Map(HeadInput.Instance.localTransform);
-        leftHand.Map(LeftHandInput.Instance.localTransform);
-        rightHand.Map(RightHandInput.Instance.localTransform);
+            transform.rotation = Quaternion.Euler(0, headConstraint.rotation.eulerAngles.y, 0);
+
+            //if (Quaternion.Angle(Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0), Quaternion.Euler(0, headConstraint.transform.rotation.eulerAngles.y, 0)) > 90)
+            //{
+            //    transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, headConstraint.transform.rotation.eulerAngles.y, 0) * transform.rotation, 3);
+            //}
+        }
     }
 }
