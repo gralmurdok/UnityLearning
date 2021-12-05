@@ -2,9 +2,9 @@ using Unity.Netcode;
 using UnityEngine;
 using Unity.Netcode.Samples;
 
-[RequireComponent(typeof(NetworkObject))]
-[RequireComponent(typeof(ClientNetworkTransform))]
-public class PlayerControl : NetworkBehaviour
+//[RequireComponent(typeof(NetworkObject))]
+//[RequireComponent(typeof(ClientNetworkTransform))]
+public class PlayerControl : MonoBehaviour
 {
     [SerializeField]
     private float walkSpeed = 3.5f;
@@ -25,10 +25,10 @@ public class PlayerControl : NetworkBehaviour
 
     void Update()
     {
-        if (IsClient && IsOwner)
-        {
+        //if (IsClient && IsOwner)
+        //{
             ClientInput();
-        }
+        //}
     }
 
     private void ClientInput()

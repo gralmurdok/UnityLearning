@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
-public class VRAnimatorController : MonoBehaviour
+public class VRAnimatorController : NetworkBehaviour
 {
     public float speedThreshold = 0.1f;
     [Range(0, 1)]
