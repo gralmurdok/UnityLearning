@@ -13,7 +13,7 @@ public class VRMap
     public void Map(Transform vrTarget)
     {
         rigTarget.position = vrTarget.TransformPoint(trackingPositionOffset);
-        rigTarget.rotation = vrTarget.rotation * Quaternion.Euler(trackingPositionOffset);
+        rigTarget.rotation = vrTarget.rotation * Quaternion.Euler(trackingRotationOffset);
     }
 }
 
