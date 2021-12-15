@@ -762,11 +762,11 @@ MonoBehaviour:
     trackingRotationOffset: {x: 0, y: 0, z: 0}
   leftHand:
     rigTarget: {fileID: 802881038}
-    trackingPositionOffset: {x: 0, y: 0, z: 0}
+    trackingPositionOffset: {x: -0.03, y: -0.05, z: -0.14}
     trackingRotationOffset: {x: -90, y: 180, z: 0}
   rightHand:
     rigTarget: {fileID: 565607996}
-    trackingPositionOffset: {x: 0, y: 0, z: 0}
+    trackingPositionOffset: {x: 0.03, y: -0.05, z: -0.14}
     trackingRotationOffset: {x: 90, y: 180, z: 0}
   headConstraint: {fileID: 1647527615}
   headBodyOffset: {x: 0, y: -1.56, z: 0}
