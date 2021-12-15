@@ -3,21 +3,15 @@ using UnityEngine;
 
 public class ServerStartManager : MonoBehaviour
 {
-    private bool serverHasStarted = false;
-    private bool clientHasConnected = false;
-
-    void Update()
+    void Start()
     {
-        if (Input.GetKeyDown(KeyCode.S) && !serverHasStarted) {
+        if (SystemInfo.deviceType == DeviceType.Desktop)
+        {
             NetworkManager.Singleton.StartHost();
-            serverHasStarted = true;
         }
-
-        if (Input.GetKeyDown(KeyCode.C) && !clientHasConnected)
+        else
         {
             NetworkManager.Singleton.StartClient();
-            clientHasConnected = true;
         }
     }
-
 }
