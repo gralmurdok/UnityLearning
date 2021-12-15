@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
 [System.Serializable]
 public class VRMap
@@ -12,11 +13,11 @@ public class VRMap
     public void Map(Transform vrTarget)
     {
         rigTarget.position = vrTarget.TransformPoint(trackingPositionOffset);
-        rigTarget.rotation = vrTarget.rotation * Quaternion.Euler(trackingPositionOffset);
+        rigTarget.rotation = vrTarget.rotation * Quaternion.Euler(trackingRotationOffset);
     }
 }
 
-public class VRRig : MonoBehaviour
+public class VRRig : NetworkBehaviour
 {
     [SerializeField]
     float turnSmoothness;
@@ -41,8 +42,7 @@ public class VRRig : MonoBehaviour
     void FixedUpdate()
     {
         transform.position = headConstraint.position + headBodyOffset;
-        transform.forward = Vector3.Lerp(transform.forward,
-            Vector3.ProjectOnPlane(headConstraint.up, Vector3.up).normalized, Time.deltaTime * turnSmoothness);
+        transform.forward = Vector3.Lerp(transform.forward, new Vector3(headConstraint.forward.x, 0f, headConstraint.forward.z), Time.deltaTime * turnSmoothness);
 
         head.Map(HeadInput.Instance.localTransform);
         leftHand.Map(LeftHandInput.Instance.localTransform);
