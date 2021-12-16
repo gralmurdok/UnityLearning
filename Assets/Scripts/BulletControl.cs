@@ -19,9 +19,10 @@ public class BulletControl : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject)
+        if (!(collision.gameObject.tag == "weapon"))
         {
             Debug.Log("GOLPE " + collision.gameObject.name);
+            gameObject.SetActive(false);
         }
     }
 }
